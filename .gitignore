@@ -20,12 +20,3 @@ __pycache__/
 *.jsonl
 .claude
 
-# User projects (demo-rag is committed)
-projects/*/context.yaml
-projects/*/state.yaml
-projects/*/reports/
-projects/*/apply/
-!projects/demo-rag/context.yaml
-!projects/demo-rag/README.md
-!projects/demo-rag/QUICKSTART.md
-!projects/demo-rag/setup/

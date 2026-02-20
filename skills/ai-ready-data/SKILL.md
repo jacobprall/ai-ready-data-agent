@@ -57,9 +57,6 @@ workflows/                         Step-by-step workflow guides
 
 reference/
   gotchas.md                       Snowflake SQL pitfalls and required permissions
-
-projects/                          Assessment targets
-  demo-rag/                        Guided demo (~10 min)
 ```
 
 ---

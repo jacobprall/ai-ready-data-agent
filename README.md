@@ -49,8 +49,6 @@ Cortex Code reads `AGENTS.md` automatically, which points to `SKILL.md`.
 
 The agent asks scoping questions, runs checks, presents results by stage, and offers to fix what's failing.
 
-**Demo:** For a guided walkthrough (~10 min, zero setup), see **[skills/ai-ready-data/projects/demo-rag/QUICKSTART.md](skills/ai-ready-data/projects/demo-rag/QUICKSTART.md)**.
-
 ---
 
 ## Use Cases
@@ -92,7 +90,6 @@ skills/
       index.yaml                    All requirement definitions
     workflows/                         Step-by-step workflow guides
     reference/                         Snowflake gotchas and permissions
-    projects/                          Assessment targets (demo included)
 ```
 
 ## Contributing

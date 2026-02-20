@@ -53,15 +53,9 @@ cortex agents search "{use_case}" --limit=5
 
 ---
 
-## Step 1: Check for Context File
+## Step 1: Ask Scoping Questions
 
-Look for a pre-filled `context.yaml` in a project directory (e.g., `projects/demo-rag/context.yaml`). If the user points to one, load it and skip to Step 4.
-
----
-
-## Step 2: Ask Scoping Questions
-
-If no context file exists, ask these questions. Use progressive disclosure (1-2 at a time).
+Ask these questions. Use progressive disclosure (1-2 at a time).
 
 1. **Database** (required): "Which database should I assess?"
 2. **Schema** (required): "Which schema?"
@@ -72,7 +66,7 @@ If no context file exists, ask these questions. Use progressive disclosure (1-2 
 
 ---
 
-## Step 3: Run Discovery Queries
+## Step 2: Run Discovery Queries
 
 Verify connectivity and discover what's available:
 
@@ -99,7 +93,7 @@ Present as a simple inventory:
 
 ---
 
-## Step 4: Confirm Scope
+## Step 3: Confirm Scope
 
 Present the scope and get explicit confirmation:
 
@@ -114,25 +108,6 @@ Proceed with assessment?
 ```
 
 **STOP:** Get confirmation before running checks.
-
----
-
-## Step 5: Save Context (Optional)
-
-If the user wants to make this repeatable, save to a project directory:
-
-**File:** `projects/<project-name>/context.yaml`
-
-```yaml
-database: {DATABASE}
-schema: {SCHEMA}
-use_case: {use_case}
-tables:
-  - {TABLE_1}
-  - {TABLE_2}
-```
-
-Add optional fields if the user provided them: `description`, `owner`.
 
 ---
 

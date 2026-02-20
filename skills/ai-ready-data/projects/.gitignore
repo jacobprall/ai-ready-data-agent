@@ -1,7 +1,0 @@
-# Ignore all projects (may contain database-specific context)
-*
-
-# But keep the directory itself and the demo project
-!.gitignore
-!demo-rag/
-!demo-rag/**

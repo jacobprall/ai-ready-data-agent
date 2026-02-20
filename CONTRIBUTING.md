@@ -29,11 +29,9 @@ ai-ready-data-agent/
 │       │   ├── remediate.md             # Stage-by-stage fixes with approval
 │       │   ├── verify.md                # Re-run checks, confirm improvements
 │       │   └── state.md                 # Cross-session state tracking
-│       ├── reference/
-│       │   ├── gotchas.md               # Snowflake SQL pitfalls + permissions
-│       │   └── placeholders.yaml        # SQL placeholder reference
-│       └── projects/
-│           └── demo-rag/                # Committed demo
+│       └── reference/
+│           ├── gotchas.md               # Snowflake SQL pitfalls + permissions
+│           └── placeholders.yaml        # SQL placeholder reference
 ```
 
 ---
@@ -73,12 +71,6 @@ To add a new measurable requirement:
 ## Adding or Updating a Workflow
 
 Workflow guides live in `skills/ai-ready-data/workflows/`. They describe *what* to do and *in what order*. SQL is loaded from `requirements/` at runtime.
-
----
-
-## Projects
-
-Assessment projects live in `skills/ai-ready-data/projects/`. Each is a directory with `context.yaml` and setup scripts. `projects/demo-rag/` is committed as a runnable demo. User projects are `.gitignore`'d by default.
 
 ---
 

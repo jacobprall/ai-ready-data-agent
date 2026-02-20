@@ -15,14 +15,6 @@ For most sessions, re-running checks at the start is sufficient and always accur
 
 ---
 
-## State File Location
-
-```
-projects/<project-name>/state.yaml
-```
-
----
-
 ## Schema
 
 ```yaml
