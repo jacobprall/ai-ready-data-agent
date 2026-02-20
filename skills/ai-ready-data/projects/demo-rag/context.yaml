@@ -1,0 +1,10 @@
+database: SNOWFLAKE_LEARNING_DB
+schema: SUPPORT_KB
+use_case: rag
+tables:
+  - ARTICLES
+  - ARTICLE_CHUNKS
+  - CUSTOMERS
+  - SUPPORT_TICKETS
+description: Support knowledge base for RAG-powered AI search
+owner: support-eng

@@ -1,0 +1,36 @@
+direction: gte
+
+operations:
+  check-object-tag-coverage:
+    warnings:
+      - "account_usage.tag_references has ~2 hour latency for new tags"
+      - "There is NO 'deleted' column in tag_references — don't filter on it"
+      - "Requires IMPORTED PRIVILEGES on SNOWFLAKE database or ACCOUNTADMIN"
+
+  check-column-tag-coverage: {}
+
+  diagnostic-tag-inventory:
+    warnings:
+      - "New tags won't appear for ~2 hours due to account_usage latency"
+
+  diagnostic-untagged-tables: {}
+
+  apply-create-tag:
+    idempotent: false
+    warnings:
+      - "ALLOWED_VALUES enforces valid tag values — use for controlled vocabularies"
+      - "Omit ALLOWED_VALUES for free-form tags like owner"
+      - "Tags are schema-level objects — consider a central governance schema"
+
+  apply-table-tags:
+    idempotent: true
+    warnings:
+      - "Tag values must match ALLOWED_VALUES if defined on the tag"
+      - "Tags are visible in ACCOUNT_USAGE.TAG_REFERENCES (with latency)"
+      - "Use consistent values across tables for queryable classification"
+
+  apply-column-tags:
+    idempotent: true
+    warnings:
+      - "Column tags are separate from table tags"
+      - "Use for PII classification to drive masking policies"

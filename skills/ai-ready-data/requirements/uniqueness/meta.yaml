@@ -1,0 +1,25 @@
+direction: lte
+
+operations:
+  check-duplicate-rate:
+    warnings:
+      - "key_columns should be the logical primary key — the columns that define a unique record"
+      - "For tables >1M rows, consider check-duplicate-rate-sampled instead"
+
+  check-duplicate-rate-sampled: {}
+
+  diagnostic-duplicate-summary: {}
+
+  apply-deduplicate-keep-first:
+    idempotent: true
+    warnings:
+      - "Preview duplicate groups with diagnostic-duplicate-summary before running"
+      - "Ensure tiebreaker_column reliably identifies the canonical record"
+      - "CREATE OR REPLACE TABLE drops and recreates — grants, policies, and streams on the original are not preserved"
+
+  apply-deduplicate-keep-last:
+    idempotent: true
+    warnings:
+      - "Preview duplicate groups with diagnostic-duplicate-summary before running"
+      - "Ensures the most recent version of each record is retained"
+      - "CREATE OR REPLACE TABLE drops and recreates — grants, policies, and streams on the original are not preserved"

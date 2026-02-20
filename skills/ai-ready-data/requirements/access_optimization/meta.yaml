@@ -1,0 +1,19 @@
+direction: gte
+
+operations:
+  check-clustering-coverage: {}
+
+  check-clustering-depth:
+    warnings:
+      - "SYSTEM$CLUSTERING_DEPTH requires table to have a clustering key defined"
+
+  diagnostic-clustering-status: {}
+
+  apply-add-clustering-key:
+    idempotent: true
+    warnings:
+      - "Choose columns based on actual query patterns, not guesses"
+      - "Column order matters — put most selective/common filters first"
+      - "Clustering has ongoing compute cost for automatic reclustering"
+      - "Don't cluster small tables (<10K rows) — overhead outweighs benefit"
+      - "Maximum 4 columns recommended for clustering key"

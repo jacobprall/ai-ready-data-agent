@@ -1,0 +1,64 @@
+# reference/placeholders.yaml — Canonical list of SQL placeholders
+#
+# All SQL files use {{ placeholder }} syntax for inputs.
+# The agent substitutes these with actual values from context.
+
+placeholders:
+  # === Core Identifiers ===
+  container: "Database name (e.g., MY_DB)"
+  namespace: "Schema name (e.g., PUBLIC)"
+  asset: "Table name (e.g., CUSTOMERS)"
+  field: "Column name (e.g., EMAIL)"
+
+  # === Tagging & Classification ===
+  tag_name: "Tag identifier (e.g., PII_TYPE, DATA_DOMAIN)"
+  tag_value: "Value to assign to the tag (e.g., EMAIL, PHONE)"
+  allowed_values: "Comma-separated allowed tag values (e.g., 'EMAIL', 'SSN', 'PHONE')"
+
+  # === Masking Policies ===
+  policy_name: "Masking policy name (e.g., MASK_PII)"
+  privileged_role: "Role that can see unmasked data (e.g., DATA_ADMIN)"
+  redacted_value: "Value shown to non-privileged users (e.g., '***', 'REDACTED')"
+  data_type: "Column data type for policy (e.g., VARCHAR, NUMBER)"
+
+  # === Change Detection ===
+  stream_name: "Stream name (e.g., CUSTOMERS_STREAM)"
+
+  # === Data Quality ===
+  key_columns: "Comma-separated key columns for uniqueness checks (e.g., ID, EMAIL)"
+  default_value: "Default value for null replacement (e.g., 0, 'UNKNOWN')"
+  placeholder_expression: "SQL expression for placeholder values (e.g., 'N/A')"
+  tiebreaker_column: "Column to determine which duplicate to keep (e.g., UPDATED_AT)"
+  sample_rows: "Number of rows to sample (e.g., 10000)"
+
+  # === Access Optimization ===
+  clustering_columns: "Comma-separated clustering key columns (e.g., CREATED_AT, REGION)"
+
+  # === Data Freshness ===
+  freshness_threshold_hours: "Maximum age in hours for data to be considered fresh (e.g., 24)"
+
+  # === Semantic Documentation ===
+  semantic_view_name: "Name for the semantic view (e.g., CUSTOMERS_SEMANTIC)"
+  comment: "Generic comment text"
+  table_comment: "Comment describing a table's purpose"
+  column_comment: "Comment describing a column's meaning"
+  description: "Human-readable description for semantic objects"
+
+  # === Semantic View Definitions ===
+  # These are multi-line YAML/SQL blocks for semantic view creation
+  table_definitions: "TABLES clause content for semantic view"
+  dimension_definitions: "DIMENSIONS clause content for semantic view"
+  fact_definitions: "FACTS clause content for semantic view"
+  metric_definitions: "METRICS clause content for semantic view"
+  relationship_definitions: "RELATIONSHIPS clause content for semantic view"
+
+# === Scope by SQL File Type ===
+#
+# | Placeholder Type | Typical SQL Files |
+# |------------------|-------------------|
+# | Core identifiers | All check-*, diagnostic-*, apply-* |
+# | Tagging          | classification/apply-*.sql |
+# | Masking          | field_masking/apply-*.sql |
+# | Change detection | change_detection/apply-*.sql |
+# | Data quality     | data_completeness/*, uniqueness/* |
+# | Semantic         | semantic_documentation/apply-*.sql |

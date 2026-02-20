@@ -1,0 +1,31 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Skills CLI install artifacts
+.agents/
+
+# Python (in case any helper scripts are added)
+__pycache__/
+*.pyc
+
+# Assessment artifacts
+*.db
+*.jsonl
+.claude
+
+# User projects (demo-rag is committed)
+projects/*/context.yaml
+projects/*/state.yaml
+projects/*/reports/
+projects/*/apply/
+!projects/demo-rag/context.yaml
+!projects/demo-rag/README.md
+!projects/demo-rag/QUICKSTART.md
+!projects/demo-rag/setup/

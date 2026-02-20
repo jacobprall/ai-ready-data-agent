@@ -1,0 +1,16 @@
+direction: gte
+
+operations:
+  check-data-freshness:
+    warnings:
+      - "freshness_threshold_hours defaults to 24 if not specified"
+      - "last_altered reflects DDL and DML changes — schema-only changes also count as 'fresh'"
+
+  diagnostic-staleness-report: {}
+
+  apply-refresh-dynamic-table:
+    idempotent: true
+    warnings:
+      - "Only works on dynamic tables — not applicable to base tables"
+      - "Triggers a full or incremental refresh depending on table configuration"
+      - "Refresh has compute cost proportional to the amount of changed data"

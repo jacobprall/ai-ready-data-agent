@@ -1,0 +1,29 @@
+direction: gte
+
+operations:
+  check-change-tracking-coverage:
+    warnings:
+      - "SHOW TABLES must be run first, then RESULT_SCAN in same session"
+      - "Column names from SHOW are lowercase with quotes: \"change_tracking\""
+
+  check-stream-coverage: {}
+
+  diagnostic-change-tracking-status:
+    warnings:
+      - "Run SHOW TABLES first, then this SELECT"
+
+  diagnostic-stream-inventory: {}
+
+  apply-enable-change-tracking:
+    idempotent: true
+    warnings:
+      - "Change tracking has storage overhead (retains change history)"
+      - "History retention is controlled by DATA_RETENTION_TIME_IN_DAYS"
+      - "Enable on tables that actually need incremental processing"
+
+  apply-create-stream:
+    idempotent: false
+    warnings:
+      - "Streams must be consumed regularly or they grow unbounded"
+      - "Consuming a stream (SELECT from it in DML) advances the offset"
+      - "Create separate streams for different consumers if needed"

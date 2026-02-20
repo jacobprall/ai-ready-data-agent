@@ -1,0 +1,17 @@
+direction: gte
+
+operations:
+  check-search-optimization-coverage:
+    warnings:
+      - "Uses SHOW TABLES + RESULT_SCAN — must run both statements in the same session"
+
+  diagnostic-search-optimization-status:
+    warnings:
+      - "Uses SHOW TABLES + RESULT_SCAN — must run both statements in the same session"
+
+  apply-add-search-optimization:
+    idempotent: true
+    warnings:
+      - "Search optimization has ongoing storage and compute cost"
+      - "Best for tables actively queried by AI workloads — not useful for staging or temp tables"
+      - "Optimization builds asynchronously after enabling — full benefit is not immediate"

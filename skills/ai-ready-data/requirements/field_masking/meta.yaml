@@ -1,0 +1,32 @@
+direction: gte
+
+operations:
+  check-masking-policy-coverage:
+    warnings:
+      - "policy_references is in snowflake.account_usage, NOT information_schema"
+      - "Column name field is ref_column_name, NOT column_name"
+      - "account_usage has ~2 hour latency for new policies"
+      - "PII detection by naming convention may miss some sensitive columns"
+
+  check-row-access-policy-coverage: {}
+
+  diagnostic-unmasked-pii:
+    warnings:
+      - "New masking policies won't appear for ~2 hours"
+      - "Always use IS_ROLE_IN_SESSION(), never CURRENT_ROLE()"
+
+  diagnostic-policy-inventory: {}
+
+  apply-create-masking-policy:
+    idempotent: false
+    warnings:
+      - "Use IS_ROLE_IN_SESSION() not CURRENT_ROLE() for proper role hierarchy"
+      - "IS_ROLE_IN_SESSION checks inherited roles too"
+      - "Test policy with different roles before applying to production"
+
+  apply-masking-policy:
+    idempotent: true
+    warnings:
+      - "One masking policy per column"
+      - "Policy data type must match column data type"
+      - "Test with different roles after applying"

@@ -1,0 +1,23 @@
+direction: gte
+
+operations:
+  check-semantic-coverage: {}
+
+  check-comment-coverage: {}
+
+  diagnostic-uncovered-tables: {}
+
+  diagnostic-semantic-inventory: {}
+
+  apply-create-semantic-view:
+    idempotent: true
+    warnings:
+      - "Dimension and fact names must be unique within their logical table"
+      - "Relationships define join paths — ensure they match actual foreign keys"
+      - "Test with Cortex Analyst after creation to verify it works"
+
+  apply-add-comments:
+    idempotent: true
+    warnings:
+      - "Comments alone don't enable semantic search or Text-to-SQL"
+      - "Prefer semantic views for full contextual coverage"

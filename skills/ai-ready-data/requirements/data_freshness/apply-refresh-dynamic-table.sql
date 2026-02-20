@@ -1,0 +1,1 @@
+ALTER DYNAMIC TABLE {{ asset }} REFRESH

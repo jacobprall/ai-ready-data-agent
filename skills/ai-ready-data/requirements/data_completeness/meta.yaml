@@ -1,0 +1,37 @@
+direction: lte
+
+operations:
+  check-null-rate:
+    warnings:
+      - "For tables >1M rows, consider check-null-rate-sampled instead"
+
+  check-null-rate-sampled: {}
+
+  diagnostic-null-summary: {}
+
+  apply-fill-default:
+    idempotent: true
+    warnings:
+      - "Ensure the default is semantically appropriate for the field"
+      - "Check if nulls are intentional (e.g., resolved_at for open tickets should stay null)"
+      - "Consider downstream impact — will consumers interpret the default correctly?"
+
+  apply-fill-placeholder:
+    idempotent: true
+    warnings:
+      - "Placeholder values should be obviously fake to avoid confusion"
+      - "Consider using a dedicated domain like .invalid or .example"
+
+  apply-delete-incomplete:
+    idempotent: true
+    warnings:
+      - "This permanently removes data — ensure rows are truly unusable"
+      - "Check for foreign key constraints that might block deletion"
+      - "Consider archiving instead of deleting if data might be needed later"
+
+  apply-add-not-null:
+    idempotent: false
+    warnings:
+      - "Run AFTER filling or deleting existing nulls"
+      - "May break existing ETL pipelines that insert nulls"
+      - "Test in dev before applying to production"

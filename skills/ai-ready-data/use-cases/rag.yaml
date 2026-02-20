@@ -1,0 +1,32 @@
+name: RAG Service
+description: Optimize data for retrieval-augmented generation
+
+stages:
+  - name: Data Quality
+    why: "Dirty data means empty chunks and garbage retrieval results"
+    requirements:
+      data_completeness: { max: 0.01 }
+      uniqueness: { max: 0.01 }
+
+  - name: Schema Understanding
+    why: "Semantic models enable Text-to-SQL and help the LLM understand your data"
+    requirements:
+      semantic_documentation: { min: 1.00 }
+
+  - name: Retrieval Performance
+    why: "Optimized access keeps retrieval latency low at scale"
+    requirements:
+      access_optimization: { min: 0.80 }
+      search_optimization: { min: 0.80 }
+
+  - name: Change Management
+    why: "Enables incremental re-indexing instead of full rebuilds on every refresh"
+    requirements:
+      change_detection: { min: 1.00 }
+      data_freshness: { min: 1.00 }
+
+  - name: Data Governance
+    why: "Prevents PII from leaking into RAG responses"
+    requirements:
+      classification: { min: 0.50 }
+      field_masking: { min: 1.00 }
